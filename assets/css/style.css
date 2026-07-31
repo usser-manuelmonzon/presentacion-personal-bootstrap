@@ -95,6 +95,22 @@ body {
     line-height: 1.8;
 }
 
+.pie-pagina {
+    padding: 45px 0;
+    color: #ffffff;
+    background-color: var(--color-principal);
+}
+
+.enlace-footer {
+    color: #ffffff;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease;
+}
+
+.enlace-footer:hover {
+    color: #b8d8ff;
+}
+
 @media (max-width: 575.98px) {
     .encabezado-personal {
         min-height: auto;
@@ -116,5 +132,9 @@ body {
 
     .tarjeta-proyecto .card-img-top {
         height: 190px;
+    }
+
+    .pie-pagina {
+        padding: 40px 0;
     }
 }
