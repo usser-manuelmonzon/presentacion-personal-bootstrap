@@ -61,3 +61,12 @@ body {
 .biografia p {
     line-height: 1.8;
 }
+
+.habilidades {
+    background-color: var(--color-fondo);
+}
+
+.habilidades .list-group-item {
+    padding: 18px 20px;
+    font-size: 1.05rem;
+}
