@@ -1,6 +1,5 @@
 :root {
     --color-principal: #102a43;
-    --color-secundario: #0d6efd;
     --color-fondo: #f1f5f9;
     --color-texto: #243b53;
 }
@@ -12,10 +11,15 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--color-texto);
+    overflow-x: hidden;
 }
 
 .navbar-personal {
     background-color: var(--color-principal);
+}
+
+.navbar-brand {
+    white-space: nowrap;
 }
 
 .encabezado-personal {
@@ -26,15 +30,32 @@ body {
     background-color: var(--color-fondo);
 }
 
-.texto-destacado {
-    color: var(--color-secundario);
-    font-size: 1.2rem;
+.nombre-principal {
+    margin: 0;
+    font-size: clamp(0.85rem, 3.8vw, 3rem);
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+}
+
+.formacion-principal {
+    margin: 0 0 12px;
+    color: var(--color-texto);
+    font-size: clamp(0.72rem, 1.8vw, 1.35rem);
     font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.descripcion-principal {
+    margin: 0;
+    font-size: clamp(0.68rem, 1.6vw, 1.25rem);
+    line-height: 1.4;
 }
 
 .foto-perfil {
-    width: 220px;
-    height: 220px;
+    width: clamp(85px, 18vw, 220px);
+    height: clamp(85px, 18vw, 220px);
     object-fit: cover;
 }
 
@@ -46,8 +67,12 @@ body {
     background-color: #ffffff;
 }
 
-.biografia p {
-    line-height: 1.8;
+.texto-seccion {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    text-align: center;
 }
 
 .habilidades {
@@ -63,10 +88,16 @@ body {
     background-color: #ffffff;
 }
 
+.proyecto-unico {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .tarjeta-proyecto {
     border: none;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
 }
 
 .tarjeta-proyecto:hover {
@@ -75,12 +106,17 @@ body {
 
 .tarjeta-proyecto .card-img-top {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .tarjeta-proyecto .card-body {
     padding: 24px;
+}
+
+.tarjeta-proyecto .card-title {
+    margin-bottom: 12px;
 }
 
 .tarjeta-proyecto .card-text {
@@ -89,10 +125,6 @@ body {
 
 .vision {
     background-color: var(--color-fondo);
-}
-
-.vision p {
-    line-height: 1.8;
 }
 
 .pie-pagina {
@@ -111,31 +143,106 @@ body {
     color: #b8d8ff;
 }
 
-@media (max-width: 575.98px) {
+/* Ajustes para tabletas */
+@media (max-width: 991.98px) {
     .encabezado-personal {
-        min-height: auto;
-        padding: 45px 0;
+        min-height: 420px;
+        padding: 50px 0;
     }
 
-    .encabezado-personal h1 {
-        font-size: 2.25rem;
+    .proyecto-unico {
+        max-width: 720px;
+    }
+}
+
+/* Ajustes para teléfonos */
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 0.72rem;
+    }
+
+    .encabezado-personal {
+        min-height: 290px;
+        padding: 35px 0;
+    }
+
+    .encabezado-personal .container {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .encabezado-personal .row {
+        --bs-gutter-x: 0.75rem;
+    }
+
+    .nombre-principal {
+        margin-bottom: 8px;
+        font-size: 0.82rem;
+        letter-spacing: -0.04em;
+    }
+
+    .formacion-principal {
+        margin-bottom: 7px;
+        font-size: 0.67rem;
+        white-space: normal;
+    }
+
+    .descripcion-principal {
+        font-size: 0.65rem;
+        line-height: 1.35;
     }
 
     .foto-perfil {
-        width: 170px;
-        height: 170px;
+        width: 82px;
+        height: 82px;
     }
 
     .seccion {
-        padding: 60px 0;
+        padding: 50px 0;
+    }
+
+    .biografia h2,
+    .vision h2,
+    .proyectos h2 {
+        margin-bottom: 22px;
+        font-size: 1.55rem;
+        text-align: center;
+    }
+
+    .texto-seccion {
+        max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 0.92rem;
+        line-height: 1.65;
+        text-align: center;
+    }
+
+    .biografia .col-lg-9,
+    .vision .col-lg-9 {
+        padding-right: 20px;
+        padding-left: 20px;
     }
 
     .habilidades .list-group-item {
         padding: 16px;
     }
 
-    .tarjeta-proyecto .card-img-top {
-        height: 190px;
+    .proyecto-unico {
+        max-width: 100%;
+    }
+
+    .tarjeta-proyecto .card-body {
+        padding: 18px;
+    }
+
+    .tarjeta-proyecto .card-title {
+        font-size: 1.2rem;
+    }
+
+    .tarjeta-proyecto .card-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .pie-pagina {
